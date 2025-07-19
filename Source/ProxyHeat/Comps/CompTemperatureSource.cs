@@ -199,7 +199,8 @@ namespace ProxyHeat
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
             base.PostDestroy(mode, previousMap);
-			proxyHeatManager.RemoveComp(this);
+            // proxyHeatManager could be null if the thing never spawned in the first place
+			proxyHeatManager?.RemoveComp(this);
 		}
 		
 		public bool dirty = false;
